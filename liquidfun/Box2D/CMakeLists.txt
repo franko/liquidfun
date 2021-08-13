@@ -2,11 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(Box2D)
 
-if(UNIX)
-  set(BOX2D_INSTALL_BY_DEFAULT ON)
-else(UNIX)
-  set(BOX2D_INSTALL_BY_DEFAULT OFF)
-endif(UNIX)
+set(BOX2D_INSTALL_BY_DEFAULT ON)
 
 # LiquidFun build configuration.
 # Force gtest to compile against the shared CRT.
@@ -16,7 +12,6 @@ endif()
 # Disable build of freeglut demos.
 set(FREEGLUT_BUILD_DEMOS OFF CACHE INTERNAL "")
 # Disable install of Box2D by default on all platforms.
-set(BOX2D_INSTALL_BY_DEFAULT OFF)
 
 option(BOX2D_INSTALL "Install Box2D libs, includes, and CMake scripts" ${BOX2D_INSTALL_BY_DEFAULT})
 option(BOX2D_INSTALL_DOC "Install Box2D documentation" OFF)
@@ -75,7 +70,7 @@ if(MSVC)
 elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX OR
        CMAKE_COMPILER_IS_CLANGXX)
   # Set the maximum warning level for gcc.
-  set(C_FLAGS_WARNINGS "-Wall -Werror -Wno-long-long -Wno-variadic-macros")
+  set(C_FLAGS_WARNINGS "-Wall -Wno-long-long -Wno-variadic-macros")
 endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_FLAGS_WARNINGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_FLAGS_WARNINGS}")
