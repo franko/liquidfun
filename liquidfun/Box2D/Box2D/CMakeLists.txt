@@ -166,11 +166,6 @@ if(BOX2D_BUILD_SHARED)
 		${BOX2D_Rope_SRCS}
 		${BOX2D_Rope_HDRS}
 	)
-	set_target_properties(Box2D_shared PROPERTIES
-		OUTPUT_NAME "liquidfun"
-		CLEAN_DIRECT_OUTPUT 1
-		VERSION ${BOX2D_VERSION}
-	)
 
 	if(UNIX AND NOT APPLE)
 		target_link_libraries(Box2D_shared rt)
@@ -196,11 +191,6 @@ if(BOX2D_BUILD_STATIC)
 		${BOX2D_Particle_HDRS}
 		${BOX2D_Rope_SRCS}
 		${BOX2D_Rope_HDRS}
-	)
-	set_target_properties(Box2D PROPERTIES
-		OUTPUT_NAME "liquidfun"
-		CLEAN_DIRECT_OUTPUT 1
-		VERSION ${BOX2D_VERSION}
 	)
 
 	if(UNIX AND NOT APPLE)
